@@ -37,3 +37,14 @@ samp2 = np.array(data_18["Healthy life expectancy"])
 t_stat ,p_val = stats.ttest_ind(samp1,samp2)
 print(f't-statistic is {t_stat}')
 print(f'p-value for the test is {p_val}')
+
+# *********** Test a claim that the average scores of perception of freedom, healthy life expectancy, generosity and perception of freedom in different countries are equal ***********
+
+## One-way ANOVA test
+group1 = np.array(data_18["Freedom to make life choices"])
+group2 = np.array(data_18["Healthy life expectancy"])
+group3 = np.array(data_18["Generosity"])
+group4 = np.array(data_18["Perceptions of corruption"])
+F_stat, p_val = stats.f_oneway(group1, group2, group3, group4)
+print(f'F-statistic is {F_stat}') 
+print(f'p-value for the test is {p_val}')
